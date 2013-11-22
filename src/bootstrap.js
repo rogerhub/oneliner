@@ -166,7 +166,7 @@ function makeOneLine(window) {
       buttons = 1;
 
     // Cover up some buttons by shifting the urlbar left
-    let baseWidth = (gURLBar.focused ? 2 : 1) * URLBAR_WIDTH;
+    let baseWidth = (gURLBar.focused ? 1 : 1) * URLBAR_WIDTH;
     let width = baseWidth - buttonWidth * buttons;
     let offset = -buttonWidth * (2 - buttons);
     backForward.style.marginRight = offset + "px";
@@ -254,7 +254,7 @@ function startup({id}) AddonManager.getAddonByID(id, function(addon) {
 
   // Make sure fullscreen always shows the toolbar without animation
   const AUTOHIDE_PREF = "browser.fullscreen.autohide";
-  Services.prefs.setBoolPref(AUTOHIDE_PREF, false);
+  Services.prefs.setBoolPref(AUTOHIDE_PREF, true);
   unload(function() Services.prefs.clearUserPref(AUTOHIDE_PREF));
 
   // Make the back/forward buttons tall enough for edge-clicks in fullscreen
