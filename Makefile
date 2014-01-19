@@ -1,4 +1,4 @@
-SOURCES=src/install.rdf src/styles/browser.css src/bootstrap.js src/scripts/utils.js src/scripts/helper.js src/images/search16.png 
+SOURCES=$(find -type f src)
 .PHONY : clean
 
 default: oneliner.xpi

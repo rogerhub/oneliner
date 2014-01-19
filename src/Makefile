@@ -2,4 +2,4 @@
 default: compile
 
 compile:
-	zip -r ../oneliner.xpi *
+	zip -r ../oneliner.xpi * --exclude Makefile
