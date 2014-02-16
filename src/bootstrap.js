@@ -57,11 +57,11 @@ function makeOneLine(window) {
   let [commands,
        navBar, tabsBar,
        backForward, urlContainer, reload, stop,
-       backCmd, forwardCmd] =
+       backCmd, forwardCmd, downloadsButton] =
     ["mainCommandSet",
      "nav-bar", "TabsToolbar",
      "unified-back-forward-button", "urlbar-container", "reload-button", "stop-button",
-     "Browser:Back", "Browser:Forward",
+     "Browser:Back", "Browser:Forward", "downloads-button"
     ].map(function(id) document.getElementById(id));
 
   // Save the order of elements in the navigation bar to restore later
@@ -124,11 +124,13 @@ function makeOneLine(window) {
   }, false);
 
   // Move the navigation controls to the tabs bar
-  let navOrder = [backForward, urlContainer, reload, stop, search];
+  let navOrder = [backForward, urlContainer, reload, stop];
   navOrder.reverse().forEach(function(node) {
     if (node != null)
       tabsBar.insertBefore(node, tabsBar.firstChild);
   });
+  tabsBar.appendChild(search);
+  tabsBar.appendChild(downloadsButton);
 
   // Create a dummy backForward object if we don't have the node
   backForward = backForward || {
@@ -265,7 +267,7 @@ function startup({id}) AddonManager.getAddonByID(id, function(addon) {
     // Increase the height extra to fill in empty space above it
     let back = document.getElementById("back-button");
     let forward = document.getElementById("forward-button");
-    back.style.height = forward.style.height = "30px";
+    //back.style.height = forward.style.height = "30px";
     unload(function() back.style.height = forward.style.height = "");
   });
 })
