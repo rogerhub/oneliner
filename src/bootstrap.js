@@ -159,8 +159,8 @@ function makeOneLine(window) {
   });
 
   // Figure out how much the back/forward button should get covered by urls
-  let buttonWidth = backForward.boxObject.width / 2;
   function updateBackForward() {
+    let buttonWidth = backForward.boxObject.width / 2;
     let buttons = 0;
     if (!forwardCmd.hasAttribute("disabled"))
       buttons = 2;
